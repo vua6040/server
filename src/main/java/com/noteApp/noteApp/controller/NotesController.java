@@ -37,8 +37,6 @@ public class NotesController {
     public List<Notes> getAllNotesOfUser(@PathVariable(value = "id") String Id) {
         List<Notes> noteOfUser = new ArrayList<>();
         List<Notes> list = notesRepository.findAll();
-        System.out.println(list.get(0).getUserId());
-        System.out.println(Id);
         noteOfUser.addAll(list.stream()
                 .filter(n -> n.getUserId().equals(Id))
                 .collect(Collectors.toList()));

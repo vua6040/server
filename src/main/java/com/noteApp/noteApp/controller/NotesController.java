@@ -79,7 +79,7 @@ public class NotesController {
     public ResponseEntity<Notes> updatePinned(@PathVariable(value = "Id") Integer Id) throws ResourceNotFoundException {
         System.out.println("Server Side Updated Pinned" + Id);
         Notes noteCurrent = notesRepository.findById(Id).orElseThrow(()->new ResourceNotFoundException(("not found")));
-        noteCurrent.setPinned(noteCurrent.getPinned());
+        noteCurrent.setPinned(!noteCurrent.getPinned());
         return ResponseEntity.ok(this.notesRepository.save(noteCurrent));
     }
 

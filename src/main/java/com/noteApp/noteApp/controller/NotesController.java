@@ -33,7 +33,7 @@ public class NotesController {
         return list;
     }
 
-    @GetMapping("/notes-user/{id}")
+    @GetMapping("/notesU/{id}")
     public List<Notes> getAllNotesOfUser(@PathVariable(value = "id") String Id) {
         List<Notes> noteOfUser = new ArrayList<>();
         List<Notes> list = notesRepository.findAll();

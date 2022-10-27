@@ -34,11 +34,11 @@ public class NotesController {
     }
 
     @GetMapping("/notesU/{id}")
-    public List<Notes> getAllNotesOfUser(@PathVariable(value = "id") Integer Id) {
+    public List<Notes> getNotesU(@PathVariable(value = "id") String Id) {
         List<Notes> noteOfUser = new ArrayList<>();
         List<Notes> list = notesRepository.findAll();
         noteOfUser.addAll(list.stream()
-                .filter(n -> n.getUserId().equals(String.valueOf(Id)))
+                .filter(n -> n.getUserId().equals(Id))
                 .collect(Collectors.toList()));
         noteOfUser.sort((Notes n1,Notes n2)->{
             if(n2.getPinned().equals(n1.getPinned())) return n2.getTimeCreate().compareTo(n1.getTimeCreate());

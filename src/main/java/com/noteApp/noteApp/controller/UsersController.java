@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -15,6 +16,13 @@ import java.util.Map;
 public class UsersController {
     @Autowired
     private UsersRepository usersRepository;
+
+
+    @GetMapping("/users")
+    public List<Users> getUsers() {
+        List<Users> list = usersRepository.findAll();
+        return list;
+    }
 
     @GetMapping("/users/{id}")
     public ResponseEntity<Users> getUser(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {

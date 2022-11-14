@@ -18,14 +18,14 @@ public class Notes implements Serializable {
      */
     private static final long serialVersionUID = 3186281461711068177L;
     private Integer Id;
-    private String title, notes, img, timeCreate, userId;
+    private String title, notes, img, timeCreate, userId,reminder;
     private Boolean pinned;
 
     public Notes() {
 
     }
 
-    public Notes(Integer Id, String title, String notes, String img, String timeCreate, Boolean pinned, String userId) {
+    public Notes(Integer Id, String title, String notes, String img, String timeCreate, Boolean pinned, String userId,String reminder) {
         this.Id = Id;
         this.title = title;
         this.img = img;
@@ -33,6 +33,7 @@ public class Notes implements Serializable {
         this.timeCreate = timeCreate;
         this.pinned = pinned;
         this.userId = userId;
+        this.reminder = reminder;
     }
 
     @Id
@@ -98,6 +99,15 @@ public class Notes implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    @Column(name = "reminder", nullable = true)
+    public String getReminder() {
+        return this.reminder;
+    }
+
+    public void setReminder(String reminder) {
+        this.reminder = reminder;
     }
 
 }

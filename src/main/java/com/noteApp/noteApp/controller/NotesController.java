@@ -70,6 +70,7 @@ public class NotesController {
         noteCurrent.setPinned(note.getPinned());
         noteCurrent.setTimeCreate(note.getTimeCreate());
         noteCurrent.setUserId(note.getUserId());
+        noteCurrent.setReminder(note.getReminder());
         return ResponseEntity.ok(this.notesRepository.save(noteCurrent));
     }
 
